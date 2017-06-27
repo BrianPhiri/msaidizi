@@ -7,48 +7,45 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by brianphiri on 6/27/17.
  */
 
-class MyRequestAdapter extends RecyclerView.Adapter<MyRequestAdapter.MyViewHolder>{
-    private String[] mDataset;
+class MyRequestAdapter extends RecyclerView.Adapter<MyRequestAdapter.MyRequestViewHolder>{
+    private ArrayList<String> mDataset;
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
+    public MyRequestAdapter(String values) {
+        this.mDataset = mDataset;
+    }
+
+
+    @Override
+    public MyRequestAdapter.MyRequestViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new MyRequestViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.cardlayout, parent, false));
+    }
+
+    @Override
+    public void onBindViewHolder(MyRequestViewHolder holder, int position) {
+        holder.mTextView.setText(mDataset.get(position));
+    }
+
+    @Override
+    public int getItemCount() {
+        return mDataset.size();
+    }
+
+    class MyRequestViewHolder extends RecyclerView.ViewHolder{
         public CardView mCardView;
         public TextView mTextView;
 
-        public MyViewHolder(View v){
+        public MyRequestViewHolder(View v){
             super(v);
             mCardView = (CardView) v.findViewById(R.id.card_view);
             mTextView = (TextView) v.findViewById(R.id.tv_text);
         }
-    }
 
-    public MyRequestAdapter(String[] myDataset){
-        mDataset = myDataset;
-    }
-
-    @Override
-    public MyRequestAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardlayout, parent, false);
-        MyViewHolder vh = new MyViewHolder(v);
-        return vh;
-    }
-
-    @Override
-    public void onBindViewHolder(MyViewHolder holder, final int position){
-        holder.mTextView.setText(mDataset[position]);
-        holder.mCardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                Intent intent = new Intent(this, Messages.class);
-            }
-        });
-    }
-
-    @Override
-    public int getItemCount(){
-        return mDataset.length;
     }
 }
