@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="blvck.chausiku.nick.msaidizi.MainActivity">
+    tools:context="blvck.chausiku.nick.msaidizi.Settings">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -18,20 +18,9 @@
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-        <android.support.design.widget.TabLayout
-            android:id="@+id/tb_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
-    <include layout="@layout/cardlayout" />
+    <include layout="@layout/content_settings" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
