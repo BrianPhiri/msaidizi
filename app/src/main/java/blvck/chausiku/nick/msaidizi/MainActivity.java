@@ -95,18 +95,15 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_homePage) {
             // Handle the camera action
 
-            Fragment HomePage = new HomePageFragment();
-            android.app.FragmentManager fragmentManager = getFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.content_frame, HomePage).commit();
 
         } else if (id == R.id.nav_profile) {
-            Fragment Profile = new ProfileFragment();
+            ProfileFragment Profile = new ProfileFragment();
             FragmentManager fragmentManager = getFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.content_frame, Profile).commit();
             Toast.makeText(this, "Progress", Toast.LENGTH_SHORT).show();
 
         } else if (id == R.id.nav_settings) {
-            Fragment Settings = new SettingsFragment();
+            SettingsFragment Settings = new SettingsFragment();
             android.app.FragmentManager fragmentManager = getFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.content_frame, Settings).commit();
 
