@@ -20,11 +20,12 @@ class SectionsPagerAdapter extends FragmentPagerAdapter{
         switch (position)
         {
             case 0:
-                return null;
+                RequestFragment requestFragment = new RequestFragment();
+                return requestFragment;
 
             case 1:
-
-                return null;
+                PendingFragment pendingFragment = new PendingFragment();
+                return pendingFragment;
 
             default:
 
@@ -44,11 +45,11 @@ class SectionsPagerAdapter extends FragmentPagerAdapter{
         {
             case 0:
 
-                return "";
+                return "Request";
 
             case 1:
 
-                return "";
+                return "Pending";
 
             default:
 
