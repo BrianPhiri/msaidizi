@@ -8,6 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+
+import com.google.firebase.analytics.FirebaseAnalytics;
+
 /**
  * Created by Nick on 6/27/2017.
  */
@@ -25,11 +28,14 @@ public class PendingFragment extends Fragment {
 
         RecyclerView rv = (RecyclerView) rootView.findViewById(R.id.rv_recycler_pending);
         rv.setHasFixedSize(true);
-        MyRequestAdapter adapter = new MyRequestAdapter(new String[]{"Example One", "Example Two", "Example Three", "Example Four", "Example Five" , "Example Six" , "Example Seven"});
-        rv.setAdapter(adapter);
 
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         rv.setLayoutManager(llm);
+
+        MyRequestAdapter adapter = new MyRequestAdapter(new String[]{"Example One", "Example Two", "Example Three", "Example Four", "Example Five" , "Example Six" , "Example Seven"});
+
+        rv.setAdapter(adapter);
+
 
         return rootView;
     }

@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "651209476978-04qj43e73ksavoa1t9kvpit8eme4irbc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "blvck.chausiku.nick.msaidizi",
+            "certificate_hash": "f454a2f0203aae9ffe516a17d2c5b5cfacb0b36b"
+          }
+        },
+        {
           "client_id": "651209476978-kntsrase5n9bk95fl05d5mphesvodcbf.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

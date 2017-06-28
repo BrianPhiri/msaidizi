@@ -25,10 +25,20 @@ public class ProfileSetup extends AppCompatActivity {
 
         profilePicture = (ImageView) findViewById(R.id.profile_Picture);
 
+        final Button registration = (Button) findViewById(R.id.btn_Register);
+        registration.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProfileSetup.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
         Button chooseImage = (Button) findViewById(R.id.btn_pick);
         chooseImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                registration.setEnabled(true);
                 Intent profilePicker = new Intent(Intent.ACTION_PICK);
                 profilePicker.setType("image/*");
                 startActivityForResult(profilePicker, SELECT_PHOTO);

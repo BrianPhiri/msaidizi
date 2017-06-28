@@ -7,12 +7,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.firebase.FirebaseApp;
+
 /**
  * Created by brianphiri on 6/27/17.
  */
 
 class MyPendingAdapter extends RecyclerView.Adapter<MyPendingAdapter.MyViewHolder>{
     private String[] mDataset;
+
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         public CardView mCardView;

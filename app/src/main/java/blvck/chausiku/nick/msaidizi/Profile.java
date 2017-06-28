@@ -87,7 +87,10 @@ public class Profile extends AppCompatActivity
             startActivity(home);
         } else if (id == R.id.nav_profile) {
             item.setEnabled(false);
-        } else if (id == R.id.nav_settings) {
+        } else if (id == R.id.nav_chat) {
+            Intent chat = new Intent(Profile.this, Chat.class);
+            startActivity(chat);
+        }else if (id == R.id.nav_settings) {
             Intent home = new Intent(Profile.this, Settings.class);
             startActivity(home);
         } else if (id == R.id.nav_logut) {

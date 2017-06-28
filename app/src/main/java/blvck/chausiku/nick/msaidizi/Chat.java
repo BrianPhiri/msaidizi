@@ -14,13 +14,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class Settings extends AppCompatActivity
+public class Chat extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+        setContentView(R.layout.activity_chat);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -56,7 +56,7 @@ public class Settings extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.settings, menu);
+        getMenuInflater().inflate(R.menu.chat, menu);
         return true;
     }
 
@@ -83,20 +83,22 @@ public class Settings extends AppCompatActivity
 
         if (id == R.id.nav_homePage) {
             // Handle the homePage action
-            Intent home = new Intent(Settings.this, MainActivity.class);
+            Intent home = new Intent(Chat.this, MainActivity.class);
             startActivity(home);
+            item.setEnabled(false);
         } else if (id == R.id.nav_profile) {
-            Intent home = new Intent(Settings.this, Profile.class);
+            Intent home = new Intent(Chat.this, Profile.class);
             startActivity(home);
+            item.setEnabled(false);
         } else if (id == R.id.nav_chat) {
-            Intent chat = new Intent(Settings.this, Chat.class);
-            startActivity(chat);
-        }else if (id == R.id.nav_settings) {
+            item.setEnabled(false);
+        } else if (id == R.id.nav_settings) {
+            Intent home = new Intent(Chat.this, Settings.class);
+            startActivity(home);
             item.setEnabled(false);
         } else if (id == R.id.nav_logut) {
 
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

@@ -98,10 +98,16 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_profile) {
             Intent home = new Intent(MainActivity.this, Profile.class);
             startActivity(home);
+            item.setEnabled(false);
 
+        } else if (id == R.id.nav_chat) {
+            Intent chat = new Intent(MainActivity.this, Chat.class);
+            startActivity(chat);
+            item.setEnabled(false);
         } else if (id == R.id.nav_settings) {
             Intent home = new Intent(MainActivity.this, Settings.class);
             startActivity(home);
+            item.setEnabled(false);
         } else if (id == R.id.nav_logut) {
 
         }
