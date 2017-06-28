@@ -14,34 +14,13 @@
         android:roundIcon="@mipmap/ic_ms_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".SplashActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Profile"
-            android:label="@string/title_activity_profile"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Settings"
-            android:label="@string/title_activity_settings"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".LoginActivity"
-            android:label="@string/title_activity_login" />
-        <activity android:name=".RegistrationActivity" />
-        <activity android:name=".ProfileSetup" />
-        <activity android:name=".ChatActivity" />
-        <activity android:name=".RequestForm"></activity>
     </application>
 
 </manifest>
