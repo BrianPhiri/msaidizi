@@ -27,7 +27,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private SectionsPagerAdapter mSectionsPagerAdapter;
+    //private SectionsPagerAdapter mSectionsPagerAdapter;
 
     private ViewPager mViewPager;
     public ImageView profPicture;
@@ -40,10 +40,10 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        //mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         mViewPager = (ViewPager) findViewById(R.id.container);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
+        //mViewPager.setAdapter(mSectionsPagerAdapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tb_layout);
         tabLayout.setupWithViewPager(mViewPager);
@@ -62,8 +62,8 @@ public class MainActivity extends AppCompatActivity
         profPicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent profilePicker = new Intent(Intent.ACTION_PICK);
-                //profilePicker.setType("image/*");
+                Intent profilePicker = new Intent(Intent.ACTION_PICK);
+                profilePicker.setType("image/*");
                 startActivityForResult(profilePicker, SELECT_PHOTO);
                 Intent intent = new Intent(MainActivity.this, ProfileView.class);
                 startActivity(intent);

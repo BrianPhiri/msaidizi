@@ -32,9 +32,9 @@ public class PendingFragment extends Fragment {
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         rv.setLayoutManager(llm);
 
-        MyRequestAdapter adapter = new MyRequestAdapter(new String[]{"Example One", "Example Two", "Example Three", "Example Four", "Example Five" , "Example Six" , "Example Seven"});
+        //MyRequestAdapter adapter = new MyRequestAdapter(new String[]{"Example One", "Example Two", "Example Three", "Example Four", "Example Five" , "Example Six" , "Example Seven"});
 
-        rv.setAdapter(adapter);
+        //rv.setAdapter(adapter);
 
 
         return rootView;
