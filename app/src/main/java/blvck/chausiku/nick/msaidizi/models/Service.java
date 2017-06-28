@@ -1,16 +1,15 @@
-package blvck.chausiku.nick.msaidizi;
+package blvck.chausiku.nick.msaidizi.models;
 
 /**
- * Created by brianphiri on 6/27/17.
+ * Created by brianphiri on 6/28/17.
  */
 
-class Services {
-
-    public String name;
-    public Services() {
+public class Service {
+    String name;
+    public Service() {
     }
 
-    public Services(String name) {
+    public Service(String name) {
         this.name = name;
     }
 

@@ -1,15 +1,12 @@
 package blvck.chausiku.nick.msaidizi;
 
-import android.app.ActionBar;
-import android.app.Fragment;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
-import android.app.FragmentManager;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -18,13 +15,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+
+
+//import blvck.chausiku.nick.msaidizi.fragment.RequestFragment;
+import blvck.chausiku.nick.msaidizi.fragment.ResponseFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private SectionsPagerAdapter mSectionsPagerAdapter;
 
+    private FragmentPagerAdapter mPagerAdapter;
     private ViewPager mViewPager;
 
     @Override
@@ -34,10 +34,35 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+//        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+//
+//        mViewPager = (ViewPager) findViewById(R.id.container);
+//        mViewPager.setAdapter(mSectionsPagerAdapter);
 
+        mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
+            private final Fragment[] mFragments = new Fragment[] {
+//                    new RequestFragment(),
+                    new ResponseFragment(),
+                    new ResponseFragment(),
+            };
+            private final String[] mFragmentNames = new String[] {"Services","Response"};
+            @Override
+            public Fragment getItem(int position) {
+                return mFragments[position];
+            }
+            @Override
+            public int getCount() {
+                return mFragments.length;
+            }
+            @Override
+            public CharSequence getPageTitle(int position) {
+                return mFragmentNames[position];
+            }
+        };
+        // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
+        mViewPager.setAdapter(mPagerAdapter);
+
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tb_layout);
         tabLayout.setupWithViewPager(mViewPager);
