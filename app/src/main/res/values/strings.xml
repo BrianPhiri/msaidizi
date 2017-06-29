@@ -23,9 +23,9 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-    <string name="title_activity_chat">Chat</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
+    <string name="title_activity_chat">Chat</string>
     <string name="service">Service</string>
     <string name="comment">Comment</string>
 </resources>
