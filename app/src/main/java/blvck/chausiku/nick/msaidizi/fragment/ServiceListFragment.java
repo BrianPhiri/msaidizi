@@ -30,10 +30,8 @@ import static android.content.ContentValues.TAG;
 //
 public class ServiceListFragment extends Fragment{
 
-    private View view;
-    private RecyclerView recyclerView;
+
     public List<String> serviceData = new ArrayList<>();
-    public List<String> serviceData2 = new ArrayList<>();
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("services");
