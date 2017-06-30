@@ -3,11 +3,14 @@ package blvck.chausiku.nick.msaidizi.adapter;
 import android.app.Service;
 import android.content.Context;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
@@ -48,7 +51,27 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
         holder.btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context,(CharSequence) serivceData.get(position),Toast.LENGTH_LONG).show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                View inflater = LayoutInflater.from(context).inflate(R.layout.dialog_request, null);
+                final TextView title = (TextView) inflater.findViewById(R.id.request_txt);
+                title.setText((CharSequence) serivceData.get(position));
+                final EditText comment = (EditText) inflater.findViewById(R.id.description_txt);
+                Button button = (Button) inflater.findViewById(R.id.submit_request);
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if(comment.getText().toString().isEmpty()){
+                            Toast.makeText(context, "No comment", Toast.LENGTH_LONG).show();
+                        }
+                        else{
+                            Toast.makeText(context,comment.getText().toString(),Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+
+                builder.setView(inflater);
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
     }

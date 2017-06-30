@@ -42,4 +42,5 @@
         deserunt mollit anim id est laborum.
     </string>
     <string name="detail_location">"8 Rue Scribe, 75009 Paris, France"</string>
+    <string name="addDescriptionMessage">Add short description</string>
 </resources>
