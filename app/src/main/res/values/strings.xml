@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Msaidizi</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main">Msaidizi</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -29,18 +29,8 @@
     <string name="service">Service</string>
     <string name="comment">Comment</string>
 
-
-    <string name="item_title">Palais Garnier</string>
-    <string name="item_desc">The Palais Garnier which locates in Paris was built from 1861 for
-        the Paris Opera.
-    </string>
-    <string name="detail_desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-        deserunt mollit anim id est laborum.
-    </string>
     <string name="detail_location">"8 Rue Scribe, 75009 Paris, France"</string>
     <string name="addDescriptionMessage">Add short description</string>
+    <string name="action_about">About</string>
+    <string name="about_msaidizi">Msaidizi is a kiswahili term meaning helper, This is an application that aims to convert that phrase into an application that can bring people together in a collaborative spirit</string>
 </resources>

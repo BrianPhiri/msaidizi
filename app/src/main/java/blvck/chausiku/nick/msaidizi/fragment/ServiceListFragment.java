@@ -55,7 +55,7 @@ public class ServiceListFragment extends Fragment{
         ValueEventListener valueEventListener = myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-//                serviceData.clear();
+                serviceData.clear();
                 for(DataSnapshot snapshot: dataSnapshot.getChildren()){
                     Services serv = snapshot.getValue(Services.class);
                     serviceData.add(serv.getTitle());

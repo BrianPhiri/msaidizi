@@ -17,7 +17,7 @@
         android:id="@+id/accept_request"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Request"
+        android:text="Accept"
         android:textColor="@color/white"
         android:background="@color/colorAccent"/>
     <Button
