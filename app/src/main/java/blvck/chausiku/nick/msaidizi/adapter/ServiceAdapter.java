@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import blvck.chausiku.nick.msaidizi.PostRequest;
 import blvck.chausiku.nick.msaidizi.R;
 import blvck.chausiku.nick.msaidizi.models.Services;
 
@@ -64,7 +65,8 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
                             Toast.makeText(context, "No comment", Toast.LENGTH_LONG).show();
                         }
                         else{
-                            Toast.makeText(context,comment.getText().toString(),Toast.LENGTH_LONG).show();
+                            PostRequest pr = new PostRequest();
+                            pr.requestService(title.getText().toString(),comment.getText().toString());
                         }
                     }
                 });
