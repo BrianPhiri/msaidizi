@@ -1,12 +1,8 @@
 package blvck.chausiku.nick.msaidizi;
 
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -14,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -25,13 +20,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
-import blvck.chausiku.nick.msaidizi.adapter.MessageChatAdapter;
 import blvck.chausiku.nick.msaidizi.models.Message;
 
 public class MessageActivity extends AppCompatActivity{
@@ -59,9 +51,6 @@ public class MessageActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 Message message = new Message(text.getText().toString(), "BrianNick", new Date());
-
-//                System.out.print("Message" + message);
-//                myRef.child(id).push().setValue(message);
                 myRef.push().setValue(message);
                 text.setText("");
             }
@@ -83,14 +72,14 @@ public class MessageActivity extends AppCompatActivity{
 
                 if (message.getSender().equals("Test")){
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        nameView.setBackground(getDrawable(R.drawable.bubble_left_gray));
-                    }
-                    layoutParams.gravity = Gravity.LEFT;
-                }else{
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         nameView.setBackground(getDrawable(R.drawable.bubble_right_green));
                     }
                     layoutParams.gravity = Gravity.RIGHT;
+                }else{
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        nameView.setBackground(getDrawable(R.drawable.bubble_left_gray));
+                    }
+                    layoutParams.gravity = Gravity.LEFT;
                 }
                 nameView.setLayoutParams(layoutParams);
                 return convertView;
