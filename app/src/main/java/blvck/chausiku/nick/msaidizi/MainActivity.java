@@ -1,5 +1,6 @@
 package blvck.chausiku.nick.msaidizi;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -105,7 +106,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+//            return true;
+            Intent intent = new Intent(MainActivity.this, MessageActivity.class);
+            startActivity(intent);
         }
         if (id == R.id.action_about){
             aboutDialog();

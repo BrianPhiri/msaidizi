@@ -33,4 +33,5 @@
     <string name="addDescriptionMessage">Add short description</string>
     <string name="action_about">About</string>
     <string name="about_msaidizi">Msaidizi is a kiswahili term meaning helper, This is an application that aims to convert that phrase into an application that can bring people together in a collaborative spirit</string>
+    <string name="send">Send</string>
 </resources>
