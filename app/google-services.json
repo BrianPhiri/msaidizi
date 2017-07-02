@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "651209476978",
+    "firebase_url": "https://msaidizi-cb7bf.firebaseio.com",
+    "project_id": "msaidizi-cb7bf",
+    "storage_bucket": "msaidizi-cb7bf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:651209476978:android:4ea4099da36f91f3",
+        "android_client_info": {
+          "package_name": "blvck.chausiku.nick.msaidizi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "651209476978-04qj43e73ksavoa1t9kvpit8eme4irbc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "blvck.chausiku.nick.msaidizi",
+            "certificate_hash": "f454a2f0203aae9ffe516a17d2c5b5cfacb0b36b"
+          }
+        },
+        {
+          "client_id": "651209476978-kntsrase5n9bk95fl05d5mphesvodcbf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "blvck.chausiku.nick.msaidizi",
+            "certificate_hash": "68f8d369720b20817fce4d6cca8c19edfdaa6c91"
+          }
+        },
+        {
+          "client_id": "651209476978-1puo51vmdrparpq74nolof4b347epop6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMDi6oaZV_GlVV2LD5cQhogYf7cKowKfs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "651209476978-1puo51vmdrparpq74nolof4b347epop6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
