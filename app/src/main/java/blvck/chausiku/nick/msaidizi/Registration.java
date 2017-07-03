@@ -32,16 +32,16 @@ public class Registration extends AppCompatActivity {
 
         edtEmail = (EditText) findViewById(R.id.edtEmail);
         email = edtEmail.getText().toString();
-        edtFname = (EditText) findViewById(R.id.edtFName);
+        /*edtFname = (EditText) findViewById(R.id.edtFName);
         fname = edtFname.getText().toString();
         edtLname = (EditText) findViewById(R.id.edtLName);
         lname = edtLname.getText().toString();
         edtPhone = (EditText) findViewById(R.id.edtPhone);
-        phone = edtPhone.getText().toString();
+        phone = edtPhone.getText().toString();*/
         edtPassword = (EditText) findViewById(R.id.edtPassword);
         pass = edtPassword.getText().toString();
-        edtConfirm = (EditText) findViewById(R.id.edtConfirmPass);
-        conf = edtConfirm.getText().toString();
+        /*edtConfirm = (EditText) findViewById(R.id.edtConfirmPass);
+        conf = edtConfirm.getText().toString();*/
         btnNext = (Button) findViewById(R.id.btnNext);
 
         mAuth = FirebaseAuth.getInstance();
@@ -63,17 +63,17 @@ public class Registration extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    createAccount(email, pass);
-                    Intent next = new Intent(Registration.this, MainActivity.class);
-                    startActivity(next);
-                    finish();
+                createAccount(edtEmail.getText().toString(), edtPassword.getText().toString());
+                Intent register = new Intent(Registration.this, MainActivity.class);
+                Registration.this.startActivity(register);
+                finish();
             }
         });
     }
 
-    public void createAccount(String email, String password)
+    public void createAccount(String semail, String ppassword)
     {
-        mAuth.createUserWithEmailAndPassword(email, password)
+        mAuth.createUserWithEmailAndPassword(semail, ppassword)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
