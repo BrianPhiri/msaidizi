@@ -1,7 +1,10 @@
 package blvck.chausiku.nick.msaidizi;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
@@ -19,16 +22,36 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
+import com.google.firebase.auth.FirebaseAuth;
+import com.squareup.picasso.Picasso;
 
 import blvck.chausiku.nick.msaidizi.fragment.MessageListFragment;
 import blvck.chausiku.nick.msaidizi.fragment.ServiceListFragment;
 import blvck.chausiku.nick.msaidizi.fragment.RequestListFragment;
+import blvck.chausiku.nick.msaidizi.utils.SharedPrefManager;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, GoogleApiClient.OnConnectionFailedListener {
 
     private FragmentPagerAdapter mPagerAdapter;
     private ViewPager mViewPager;
+    private ImageView mProfileImageView;
+    private String mUsername, mEmail;
+    private TextView mFullNameTextView, mEmailTextView;
+
+    SharedPrefManager sharedPrefManager;
+    private GoogleApiClient mGoogleApiClient;
+    private FirebaseAuth mAuth;
+
+    Context mContext = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +100,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tb_layout);
         tabLayout.setupWithViewPager(mViewPager);
 
+        mFullNameTextView = (TextView) findViewById(R.id.Username);
+        mEmailTextView = (TextView) findViewById(R.id.Useremail);
+        mProfileImageView = (ImageView) findViewById(R.id.imageView);
+
+        // create an object of sharedPreferenceManager and get stored user data
+        sharedPrefManager = new SharedPrefManager(mContext);
+        mUsername = sharedPrefManager.getName();
+        mEmail = sharedPrefManager.getUserEmail();
+        String uri = sharedPrefManager.getPhoto();
+        Uri mPhotoUri = Uri.parse(uri);
+
+        //Set data gotten from SharedPreference to the Navigation Header view
+        mFullNameTextView.setText(mUsername);
+        mEmailTextView.setText(mEmail);
+
+        Picasso.with(mContext)
+                .load(mPhotoUri)
+                .placeholder(android.R.drawable.sym_def_app_icon)
+                .error(android.R.drawable.sym_def_app_icon)
+                .into(mProfileImageView);
+
+        configureSignIn();
 
     }
 
@@ -148,6 +193,42 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         AlertDialog dialog = builder.create();
         dialog.show();
+
+    }
+
+    public void configureSignIn(){
+    // Configure sign-in to request the user's basic profile like name and email
+        GoogleSignInOptions options = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+
+        // Build a GoogleApiClient with access to GoogleSignIn.API and the options above.
+        mGoogleApiClient = new GoogleApiClient.Builder(mContext)
+                .enableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, options)
+                .build();
+        mGoogleApiClient.connect();
+    }
+
+    //method to logout
+    private void signOut(){
+        new SharedPrefManager(mContext).clear();
+        mAuth.signOut();
+
+        Auth.GoogleSignInApi.revokeAccess(mGoogleApiClient).setResultCallback(
+                new ResultCallback<Status>() {
+                    @Override
+                    public void onResult(@NonNull Status status) {
+                        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }
+        );
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
 }

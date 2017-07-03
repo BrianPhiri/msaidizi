@@ -35,4 +35,6 @@
     <string name="about_msaidizi">Msaidizi is a kiswahili term meaning helper, This is an application that aims to convert that phrase into an application that can bring people together in a collaborative spirit</string>
     <string name="send">Send</string>
     <string name="auth_failed">Failed</string>
+    <string name="log_error_occurred">"Error occurred: "</string>
+    <string name="loading">Loading…</string>
 </resources>
